@@ -1,17 +1,35 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  for (let i = 0; i < array.length; i++) {
+    let sum = target - array[i];
+    for (let j = i + 1; j < array.length; j++) {  
+      if (array[j] === sum) {
+        return true
+      };
+    }
+  }
+  return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+   O(n)
 */
 
 /* 
   Add your pseudocode here
+  iterate over the array of numbers
+  for the current number, identify a complementary number that adds to our target
+  (for example: if our number is 2, and the target is 5, the complementary number is 3)
+  iterate over the remaining numbers in the array
+    check if any of the remaining numbers is the complement
+      if so, return true
+  if we reach the end of the array, return false
 */
 
 /*
   Add written explanation of your solution here
+   make a function called hasTargetSum that checks if two numbers in an array add up to the same target.
+  for instance if an array = [9,8,7,6,5] and the target is 15 then the result should be true since 9+6=15
 */
 
 // You can run `node index.js` to view these console logs
